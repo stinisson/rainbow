@@ -1,41 +1,93 @@
+import * as Utils from '/javascripts/utils.js';
 
 $(document).ready(() => {
 
   const ctx = document.getElementById('myChart').getContext('2d');
 
-  const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
+  const data = {
+
+
+    //labels: ["1629058062", "1629058122", "1629058182", "1629058242", "1629058302", "1629058362", "1629058422"],
+    datasets: [
+      {
+        label: 'Hoodl',
+        fill: true,
+        backgroundColor: Utils.CHART_COLORS.green,
+        borderColor: Utils.CHART_COLORS.green,
+        data: [{x:'2016-12-25', y:5}, {x:'2016-12-26', y:5}, {x:'2016-12-27', y:5}, {x:'2016-12-28', y:5}]
+      },
+      {
+        label: 'Ground truth',
+        fill: true,
+        backgroundColor: Utils.CHART_COLORS.yellow,
+        borderColor: Utils.CHART_COLORS.yellow,
+        data: [{x:'2016-12-25', y:10}, {x:'2016-12-26', y:10}, {x:'2016-12-27', y:10}, {x:'2016-12-28', y:10}],
+      },
+      {
+        label: 'FOMO',
+        fill: true,
+        backgroundColor: Utils.CHART_COLORS.red,
+        borderColor: Utils.CHART_COLORS.red,
+        data: [{x:'2016-12-25', y:15}, {x:'2016-12-26', y:15}, {x:'2016-12-27', y:15}, {x:'2016-12-28', y:15}],
+      }
+    ]
+  };
+
+
+  const config = {
+    type: 'line',
+    data: data,
     options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Rainbow chart'
+        },
+      },
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
+        x: {
+          //type: 'time', //this kills the app
+          time: {
+            unit: 'month'
+          },
+          display: true,
+          title: {
+            display: true,
+            text: 'Month'
+          }
+        },
         y: {
-          beginAtZero: true
+          display: true,
+          min: -5,
+          max: 20,
+          title: {
+            display: true,
+            text: 'USD/mBTC'
+          }
         }
       }
-    }
+    },
+  };
+
+  const myChart = new Chart(ctx, config);
+
+  const endpoint = "/price-data";
+  $.getJSON(endpoint, {})
+    .done((prices) => {
+      prices.forEach((price) => {
+        console.log("timestamp: ", price.timestamp);
+        console.log("price: ", price.price);
+      });
+
+
+    })
+    .fail((error) => {
+      console.log(error);
   });
 
 
