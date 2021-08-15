@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(() => {
 
   const options = {
@@ -11,18 +8,16 @@ $(document).ready(() => {
     mixColor: '#fff', // default: '#fff'
     backgroundColor: '#d5d5d5',  // default: '#fff'
     buttonColorDark: '#212121',  // default: '#100f2c' 1A1A1A
-
     buttonColorLight: '#d5d5d5', // default: '#fff'
     saveInCookies: false, // default: true,
-    //label: '🌙', // default: ''
     label: '<i id="dark-mode-icon" class="fas fa-moon"></i>', // default: ''
     autoMatchOsTheme: true // default: true
   }
 
-
   const darkmode = new Darkmode(options);
   darkmode.showWidget();
 
+  // Change dark mode toggle button icon moon/sun
   $( ":button.darkmode-toggle" ).click(function() {
     console.log("Handler for .click() called") // will return true
 
@@ -36,9 +31,5 @@ $(document).ready(() => {
       $("#dark-mode-icon").addClass("fa-moon");
     }
   });
-
-  console.log(darkmode.isActivated()) // will return true
-
-
 
 });
