@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #2880a3; }
+
+#myChart {
+  width: 400px;
+  height: 400px; }
+
+#dark-mode-icon {
+  color: #ffffff; }
+
+/*# sourceMappingURL=style.css.map */
