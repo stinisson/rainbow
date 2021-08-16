@@ -28,6 +28,23 @@ router.get('/price-data', function(req, res, next) {
   });
 });
 
+router.get('/price-data/rainbow7fields', function(req, res, next) {
+
+  MongoClient.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    if (err) throw err;
+    else {
+      const db = client.db('rainbow');
+      const prices = db.collection('rainbow_7');
+
+      prices.find().project({}).toArray( (err, docs) => {
+        if (err) throw err;
+        else { res.send(docs); }
+        client.close();
+      });
+    }
+  });
+});
+
 
 
 module.exports = router;
