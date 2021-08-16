@@ -1,19 +1,37 @@
-import * as Utils from '/javascripts/utils.js';
+import {CHART_COLORS, CHART_COLORS_TRANSPARENT} from '/javascripts/utils.js';
+
+
+function getCurrentPrice() {
+  const endpoint = "https://www.bitstamp.net/api/v2/ticker/btcusd/";
+  $.getJSON(endpoint, {"Access-Control-Allow-Origin": "https://www.bitstamp.net/api/v2/ticker/btcusd/",
+    "Access-Control-Allow-Credentials": false, 'Access-Control-Allow-Methods': 'GET'})
+    .done((priceData) => {
+
+      $("#current-price").text(Number(priceData.last/1000).toPrecision(4));
+      console.log("Updating current price to: ", Number(priceData.last/1000).toPrecision(4))
+
+    })
+    .fail((xhr) => {
+      alert('Problem contacting server');
+      console.log(xhr);
+    });
+}
 
 function downloadPrice() {
   return new Promise((resolve, reject) => {
     const endpoint = "/price-data";
     $.getJSON(endpoint, {})
       .done((prices) => {
+
         const priceData = []
         prices.forEach((price) => {
           if (price.timestamp && price.price) {
             const date = new Date(price.timestamp*1000);
             priceData.push( {"x": price.timestamp*1000, "y":  Number.parseFloat(price.price).toPrecision(4)} );
-
           }
         });
         resolve(priceData);
+
       })
       .fail((error) => {
         console.log(error);
@@ -51,18 +69,21 @@ function downloadRainbow() {
 
 $(document).ready(() => {
 
+  setInterval ( function() {getCurrentPrice();}, 5000 );
+
+
   // Line chart
   const ctx = document.getElementById('myChart').getContext('2d');
+
+  getCurrentPrice();
 
   let priceData;
   let rainbowData;
 
   downloadPrice().then((value) => {
-    console.log("price data resolved!");
     priceData = value;
 
     downloadRainbow().then((value) => {
-      console.log("rainbow data resolved!");
       rainbowData = value;
 
       const config = {
@@ -73,63 +94,63 @@ $(document).ready(() => {
             {
               data: priceData,
               label: "Price",
-              borderColor: Utils.CHART_COLORS.grey,
+              borderColor: CHART_COLORS.grey,
               fill: false,
               borderWidth: 2
             },
             {
               data: rainbowData[0],
-              borderColor: Utils.CHART_COLORS.purple,
+              borderColor: CHART_COLORS.purple,
               fill: false
             },
             {
               data: rainbowData[1],
               label: "Ice age",
-              borderColor: Utils.CHART_COLORS.purple,
+              borderColor: CHART_COLORS.purple,
               fill: 1,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.purple
+              backgroundColor: CHART_COLORS_TRANSPARENT.purple
             },
             {
               data: rainbowData[2],
               label: "Winter is coming",
-              borderColor: Utils.CHART_COLORS.indigo,
+              borderColor: CHART_COLORS.indigo,
               fill: 2,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.indigo
+              backgroundColor: CHART_COLORS_TRANSPARENT.indigo
             },
             {
               data: rainbowData[3],
               label: "Calling all hodlers",
-              borderColor: Utils.CHART_COLORS.blue,
+              borderColor: CHART_COLORS.blue,
               fill: 3,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.blue
+              backgroundColor: CHART_COLORS_TRANSPARENT.blue
             },
             {
               data: rainbowData[4],
               label: "ZzzzZZZZzz",
-              borderColor: Utils.CHART_COLORS.green,
+              borderColor: CHART_COLORS.green,
               fill: 4,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.green
+              backgroundColor: CHART_COLORS_TRANSPARENT.green
             },
             {
               data: rainbowData[5],
               label: "Tension is rising",
-              borderColor: Utils.CHART_COLORS.yellow,
+              borderColor: CHART_COLORS.yellow,
               fill: 5,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.yellow
+              backgroundColor: CHART_COLORS_TRANSPARENT.yellow
             },
             {
               data: rainbowData[6],
               label: "Bubble about to pop..?",
-              borderColor: Utils.CHART_COLORS.orange,
+              borderColor: CHART_COLORS.orange,
               fill: 6,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.orange
+              backgroundColor: CHART_COLORS_TRANSPARENT.orange
             },
             {
               data: rainbowData[7],
-              label: "SELL!",
-              borderColor: Utils.CHART_COLORS.red,
+              label: "Азарт!",
+              borderColor: CHART_COLORS.red,
               fill: 6,
-              backgroundColor: Utils.CHART_COLORS_TRANSPARENT.red
+              backgroundColor: CHART_COLORS_TRANSPARENT.red
             }
             ],
         },
@@ -193,5 +214,8 @@ $(document).ready(() => {
     console.log("price data rejected!");
   });
 
+
+
 });
 
+export const hej = 2;
