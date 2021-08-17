@@ -2,13 +2,12 @@ import {CHART_COLORS, CHART_COLORS_TRANSPARENT} from '/javascripts/utils.js';
 
 
 function getCurrentPrice() {
-  const endpoint = "https://www.bitstamp.net/api/v2/ticker/btcusd/";
-  $.getJSON(endpoint, {"Access-Control-Allow-Origin": "https://www.bitstamp.net/api/v2/ticker/btcusd/",
-    "Access-Control-Allow-Credentials": false, 'Access-Control-Allow-Methods': 'GET'})
+  const endpoint = "/last-price";
+  $.getJSON(endpoint, {})
     .done((priceData) => {
 
-      $("#current-price").text(Number(priceData.last/1000).toPrecision(4));
-      console.log("Updating current price to: ", Number(priceData.last/1000).toPrecision(4))
+      $("#current-price").text(Number(priceData.lastPrice/1000).toPrecision(4));
+      //console.log("Updating current price to: ", Number(priceData.lastPrice/1000).toPrecision(4))
 
     })
     .fail((xhr) => {
@@ -16,6 +15,7 @@ function getCurrentPrice() {
       console.log(xhr);
     });
 }
+
 
 function downloadPrice() {
   return new Promise((resolve, reject) => {
@@ -69,13 +69,13 @@ function downloadRainbow() {
 
 $(document).ready(() => {
 
+  getCurrentPrice();
   setInterval ( function() {getCurrentPrice();}, 5000 );
 
 
   // Line chart
   const ctx = document.getElementById('myChart').getContext('2d');
 
-  getCurrentPrice();
 
   let priceData;
   let rainbowData;
@@ -105,42 +105,42 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[1],
-              label: "Ice age",
+              label: "What are you waiting for?",
               borderColor: CHART_COLORS.purple,
               fill: 1,
               backgroundColor: CHART_COLORS_TRANSPARENT.purple
             },
             {
               data: rainbowData[2],
-              label: "Winter is coming",
+              label: "It's christmas!",
               borderColor: CHART_COLORS.indigo,
               fill: 2,
               backgroundColor: CHART_COLORS_TRANSPARENT.indigo
             },
             {
               data: rainbowData[3],
-              label: "Calling all hodlers",
+              label: "Well, well, well.. ",
               borderColor: CHART_COLORS.blue,
               fill: 3,
               backgroundColor: CHART_COLORS_TRANSPARENT.blue
             },
             {
               data: rainbowData[4],
-              label: "ZzzzZZZZzz",
+              label: "Calling all hodlers",
               borderColor: CHART_COLORS.green,
               fill: 4,
               backgroundColor: CHART_COLORS_TRANSPARENT.green
             },
             {
               data: rainbowData[5],
-              label: "Tension is rising",
+              label: "Tension is building",
               borderColor: CHART_COLORS.yellow,
               fill: 5,
               backgroundColor: CHART_COLORS_TRANSPARENT.yellow
             },
             {
               data: rainbowData[6],
-              label: "Bubble about to pop..?",
+              label: "Normal people would.. sell?",
               borderColor: CHART_COLORS.orange,
               fill: 6,
               backgroundColor: CHART_COLORS_TRANSPARENT.orange
@@ -213,8 +213,6 @@ $(document).ready(() => {
   }, reason => {
     console.log("price data rejected!");
   });
-
-
 
 });
 
