@@ -16,5 +16,16 @@ export const CHART_COLORS_TRANSPARENT = {
   green: 'rgba(75, 192, 192, 0.9)',
   blue: 'rgba(54, 162, 235, 0.9)',
   indigo: 'rgba(5, 93, 161, 0.9)',
-  purple: 'rgba(153, 102, 255, 0.9)'
+  purple: 'rgba(153, 102, 255, 0.9)',
+  transparent: 'rgba(0, 0, 0, 0)'
+};
+
+export const CHART_COLORS_COMPLEMENTARY = {
+  red: 'rgba(255, 99, 132, 0.9)',
+  orange: 'rgba(255, 159, 64, 0.9)',
+  yellow: 'rgba(255, 205, 86, 0.9)',
+  green: 'rgba(75, 192, 192, 0.9)',
+  blue: 'rgba(54, 162, 235, 0.9)',
+  indigo: 'rgba(229,150,89, 0.9)',
+  purple: 'rgba(96, 142, 4, 0.9)'
 };

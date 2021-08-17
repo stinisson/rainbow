@@ -1,3 +1,6 @@
+import {CHART_COLORS, CHART_COLORS_TRANSPARENT, CHART_COLORS_COMPLEMENTARY} from '/javascripts/utils.js';
+
+
 $(document).ready(() => {
 
   const options = {
@@ -25,11 +28,24 @@ $(document).ready(() => {
       $("#dark-mode-icon").removeClass("fa-moon");
       $("#dark-mode-icon").addClass("fa-sun");
       $("#dark-mode-icon").css("color", "#2A2A2A");
+
+      document.myChart.data.datasets[2].borderColor = CHART_COLORS_COMPLEMENTARY.purple;
+      document.myChart.data.datasets[2].backgroundColor = CHART_COLORS_COMPLEMENTARY.purple;
+      document.myChart.data.datasets[3].borderColor = CHART_COLORS_COMPLEMENTARY.indigo;
+      document.myChart.data.datasets[3].backgroundColor = CHART_COLORS_COMPLEMENTARY.indigo;
+      document.myChart.data.datasets[4].borderColor = CHART_COLORS_COMPLEMENTARY.blue;
+      document.myChart.data.datasets[4].backgroundColor = CHART_COLORS_COMPLEMENTARY.blue;
     } else {
       $("#dark-mode-icon").css("color", "#fff");
       $("#dark-mode-icon").removeClass("fa-sun");
       $("#dark-mode-icon").addClass("fa-moon");
+      document.myChart.data.datasets[2].borderColor = CHART_COLORS.purple;
+      document.myChart.data.datasets[2].backgroundColor = CHART_COLORS_TRANSPARENT.purple;
+      document.myChart.data.datasets[3].borderColor = CHART_COLORS.indigo;
+      document.myChart.data.datasets[3].backgroundColor = CHART_COLORS_TRANSPARENT.indigo;
+      document.myChart.data.datasets[4].borderColor = CHART_COLORS.blue;
+      document.myChart.data.datasets[4].backgroundColor = CHART_COLORS_TRANSPARENT.blue;
     }
+    document.myChart.update()
   });
-
 });

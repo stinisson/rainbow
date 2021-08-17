@@ -100,57 +100,65 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[0],
-              borderColor: CHART_COLORS.purple,
-              fill: false
+              borderColor: CHART_COLORS_TRANSPARENT.transparent,
+              fill: false,
+              borderWidth: 0
             },
             {
               data: rainbowData[1],
               label: "What are you waiting for?",
               borderColor: CHART_COLORS.purple,
               fill: 1,
-              backgroundColor: CHART_COLORS_TRANSPARENT.purple
+              backgroundColor: CHART_COLORS_TRANSPARENT.purple,
+              borderWidth: 0
             },
             {
               data: rainbowData[2],
               label: "It's christmas!",
               borderColor: CHART_COLORS.indigo,
               fill: 2,
-              backgroundColor: CHART_COLORS_TRANSPARENT.indigo
+              backgroundColor: CHART_COLORS_TRANSPARENT.indigo,
+              borderWidth: 0
             },
             {
               data: rainbowData[3],
               label: "Well, well, well.. ",
               borderColor: CHART_COLORS.blue,
               fill: 3,
-              backgroundColor: CHART_COLORS_TRANSPARENT.blue
+              backgroundColor: CHART_COLORS_TRANSPARENT.blue,
+              borderWidth: 0
             },
             {
               data: rainbowData[4],
               label: "Calling all hodlers",
               borderColor: CHART_COLORS.green,
               fill: 4,
-              backgroundColor: CHART_COLORS_TRANSPARENT.green
+              backgroundColor: CHART_COLORS_TRANSPARENT.green,
+              borderWidth: 0
             },
             {
               data: rainbowData[5],
               label: "Tension is building",
               borderColor: CHART_COLORS.yellow,
               fill: 5,
-              backgroundColor: CHART_COLORS_TRANSPARENT.yellow
+              backgroundColor: CHART_COLORS_TRANSPARENT.yellow,
+              borderWidth: 0
             },
             {
               data: rainbowData[6],
               label: "Normal people would.. sell?",
               borderColor: CHART_COLORS.orange,
               fill: 6,
-              backgroundColor: CHART_COLORS_TRANSPARENT.orange
+              backgroundColor: CHART_COLORS_TRANSPARENT.orange,
+              borderWidth: 0
             },
             {
               data: rainbowData[7],
               label: "Азарт!",
               borderColor: CHART_COLORS.red,
-              fill: 6,
-              backgroundColor: CHART_COLORS_TRANSPARENT.red
+              fill: 7,
+              backgroundColor: CHART_COLORS_TRANSPARENT.red,
+              borderWidth: 0
             }
             ],
         },
@@ -187,7 +195,7 @@ $(document).ready(() => {
                 padding: 5,
                 autoSkip: true,
                 autoSkipPadding: 15,
-                min: -5
+                min: 1
               },
               scaleLabel: {
                 labelString: "USD/BTC",
@@ -204,7 +212,7 @@ $(document).ready(() => {
         }
       };
 
-      const myChart = new Chart(ctx, config);
+      document.myChart = new Chart(ctx, config);
 
     }, reason => {
       console.log("rainbow data rejected!");
