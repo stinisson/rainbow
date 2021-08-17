@@ -35,6 +35,14 @@ $(document).ready(() => {
       document.myChart.data.datasets[3].backgroundColor = CHART_COLORS_COMPLEMENTARY.indigo;
       document.myChart.data.datasets[4].borderColor = CHART_COLORS_COMPLEMENTARY.blue;
       document.myChart.data.datasets[4].backgroundColor = CHART_COLORS_COMPLEMENTARY.blue;
+      document.myChart.data.datasets[5].borderColor = CHART_COLORS_COMPLEMENTARY.green;
+      document.myChart.data.datasets[5].backgroundColor = CHART_COLORS_COMPLEMENTARY.green;
+      document.myChart.data.datasets[6].borderColor = CHART_COLORS_COMPLEMENTARY.yellow;
+      document.myChart.data.datasets[6].backgroundColor = CHART_COLORS_COMPLEMENTARY.yellow;
+      document.myChart.data.datasets[7].borderColor = CHART_COLORS_COMPLEMENTARY.orange;
+      document.myChart.data.datasets[7].backgroundColor = CHART_COLORS_COMPLEMENTARY.orange;
+      document.myChart.data.datasets[8].borderColor = CHART_COLORS_COMPLEMENTARY.red;
+      document.myChart.data.datasets[8].backgroundColor = CHART_COLORS_COMPLEMENTARY.red;
     } else {
       $("#dark-mode-icon").css("color", "#fff");
       $("#dark-mode-icon").removeClass("fa-sun");
@@ -45,6 +53,14 @@ $(document).ready(() => {
       document.myChart.data.datasets[3].backgroundColor = CHART_COLORS_TRANSPARENT.indigo;
       document.myChart.data.datasets[4].borderColor = CHART_COLORS.blue;
       document.myChart.data.datasets[4].backgroundColor = CHART_COLORS_TRANSPARENT.blue;
+      document.myChart.data.datasets[5].borderColor = CHART_COLORS.green;
+      document.myChart.data.datasets[5].backgroundColor = CHART_COLORS_TRANSPARENT.green;
+      document.myChart.data.datasets[6].borderColor = CHART_COLORS.yellow;
+      document.myChart.data.datasets[6].backgroundColor = CHART_COLORS_TRANSPARENT.yellow;
+      document.myChart.data.datasets[7].borderColor = CHART_COLORS.orange;
+      document.myChart.data.datasets[7].backgroundColor = CHART_COLORS_TRANSPARENT.orange;
+      document.myChart.data.datasets[8].borderColor = CHART_COLORS.red;
+      document.myChart.data.datasets[8].backgroundColor = CHART_COLORS_TRANSPARENT.red;
     }
     document.myChart.update()
   });

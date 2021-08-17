@@ -102,7 +102,7 @@ $(document).ready(() => {
               data: rainbowData[0],
               borderColor: CHART_COLORS_TRANSPARENT.transparent,
               fill: false,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[1],
@@ -110,7 +110,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.purple,
               fill: 1,
               backgroundColor: CHART_COLORS_TRANSPARENT.purple,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[2],
@@ -118,7 +118,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.indigo,
               fill: 2,
               backgroundColor: CHART_COLORS_TRANSPARENT.indigo,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[3],
@@ -126,7 +126,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.blue,
               fill: 3,
               backgroundColor: CHART_COLORS_TRANSPARENT.blue,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[4],
@@ -134,7 +134,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.green,
               fill: 4,
               backgroundColor: CHART_COLORS_TRANSPARENT.green,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[5],
@@ -142,7 +142,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.yellow,
               fill: 5,
               backgroundColor: CHART_COLORS_TRANSPARENT.yellow,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[6],
@@ -150,7 +150,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.orange,
               fill: 6,
               backgroundColor: CHART_COLORS_TRANSPARENT.orange,
-              borderWidth: 0
+              borderWidth: 1
             },
             {
               data: rainbowData[7],
@@ -158,7 +158,7 @@ $(document).ready(() => {
               borderColor: CHART_COLORS.red,
               fill: 7,
               backgroundColor: CHART_COLORS_TRANSPARENT.red,
-              borderWidth: 0
+              borderWidth: 1
             }
             ],
         },
