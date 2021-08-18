@@ -6,7 +6,7 @@ export const CHART_COLORS = {
   blue: 'rgb(54, 162, 235)',
   indigo: 'rgb(5, 93, 161)',
   purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(255,255,255)'
+  white: 'rgb(255, 255, 255)',
 };
 
 export const CHART_COLORS_TRANSPARENT = {
@@ -17,6 +17,7 @@ export const CHART_COLORS_TRANSPARENT = {
   blue: 'rgba(54, 162, 235, 0.9)',
   indigo: 'rgba(5, 93, 161, 0.9)',
   purple: 'rgba(153, 102, 255, 0.9)',
+  grey: 'rgb(213,213,213)',
   transparent: 'rgba(0, 0, 0, 0)'
 };
 

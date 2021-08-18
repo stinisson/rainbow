@@ -94,7 +94,7 @@ $(document).ready(() => {
             {
               data: priceData,
               label: "Price",
-              borderColor: CHART_COLORS.grey,
+              borderColor: CHART_COLORS.white,
               fill: false,
               borderWidth: 2
             },
