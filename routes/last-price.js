@@ -56,5 +56,5 @@ module.exports = router;
 // Update opening hours once every five minutes
 // cronTime, onTick, onComplete, start, timezone, context, runOnInit
 // Save last price five seconds past midnight everyday
-const job = new CronJob('*/10 * * * * *', saveLastPrice, null, null, null, null, false);
+const job = new CronJob('5 0 0 * * *', saveLastPrice, null, null, null, null, false);
 job.start();
