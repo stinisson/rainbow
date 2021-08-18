@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+
+  //h1.pt-5.text-center= error.status
+  h1.pt-5.text-center Oh noes!
+  h2.pt-5.text-center= message
+
+  .d-flex.justify-content-center
+    a.btn.error-button.btn-lg.active(href='/', role='button', aria-pressed='true') Take me back!
