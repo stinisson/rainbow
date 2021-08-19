@@ -3,8 +3,13 @@ body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
   overflow: auto
 
-a
-  color: #2880a3
+.footer a
+  color: #7b91e5
+  text-decoration: none
+
+.footer a:hover
+  color: #3f5eb4
+  text-decoration: none
 
 #myChart
   width: 400px
@@ -36,6 +41,7 @@ a
   width: 100%
 
 .footer
+  z-index: -10  // change colour in dark mode
   position: fixed
   left: 0
   bottom: 0
@@ -55,3 +61,4 @@ a
 
 .btn.error-button:hover
   color: rgb(255, 255, 255)
+
