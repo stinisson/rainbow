@@ -106,7 +106,7 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[1],
-              label: "What are you waiting for?",
+              label: "If you are given something, take it",
               borderColor: CHART_COLORS.purple,
               fill: 1,
               backgroundColor: CHART_COLORS_TRANSPARENT.purple,
@@ -114,7 +114,7 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[2],
-              label: "It's christmas!",
+              label: "What are you waiting for?",
               borderColor: CHART_COLORS.indigo,
               fill: 2,
               backgroundColor: CHART_COLORS_TRANSPARENT.indigo,
@@ -122,7 +122,7 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[3],
-              label: "Well, well, well.. ",
+              label: "Ride slower, advance further",
               borderColor: CHART_COLORS.blue,
               fill: 3,
               backgroundColor: CHART_COLORS_TRANSPARENT.blue,
@@ -138,7 +138,7 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[5],
-              label: "Tension is building",
+              label: "Tension is rising",
               borderColor: CHART_COLORS.yellow,
               fill: 5,
               backgroundColor: CHART_COLORS_TRANSPARENT.yellow,
@@ -146,7 +146,7 @@ $(document).ready(() => {
             },
             {
               data: rainbowData[6],
-              label: "Normal people would.. sell?",
+              label: "Sell of time",
               borderColor: CHART_COLORS.orange,
               fill: 6,
               backgroundColor: CHART_COLORS_TRANSPARENT.orange,
@@ -215,13 +215,11 @@ $(document).ready(() => {
       document.myChart = new Chart(ctx, config);
 
     }, reason => {
-      console.log("rainbow data rejected!");
+      //console.log("rainbow data rejected!");
     });
 
   }, reason => {
-    console.log("price data rejected!");
+    //console.log("price data rejected!");
   });
 
 });
-
-export const hej = 2;
