@@ -34,7 +34,7 @@ router.get('/price-data/rainbow7fields', function(req, res, next) {
     if (err) throw err;
     else {
       const db = client.db('rainbow');
-      const prices = db.collection('rainbow_7');
+      const prices = db.collection('rainbow_7_90');
 
       prices.find().project({}).toArray( (err, docs) => {
         if (err) throw err;
