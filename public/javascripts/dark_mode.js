@@ -22,8 +22,6 @@ $(document).ready(() => {
 
   // Change dark mode toggle button icon moon/sun
   $( ":button.darkmode-toggle" ).click(function() {
-    console.log("Handler for .click() called") // will return true
-
     if(darkmode.isActivated()) {
       $("#dark-mode-icon").removeClass("fa-moon");
       $("#dark-mode-icon").addClass("fa-sun");
