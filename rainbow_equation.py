@@ -91,7 +91,7 @@ def make_rainbow(rainbow_n=7):
     rainbows = np.exp(log_diffs + log_bot)
     rainbows = rainbows * 0.9  # Lower the rainbow a bit
 
-    with open(f"C:/slask/rainbow_{rainbow_n}.csv", 'w+', newline='') as f:
+    with open(f"rainbow_{rainbow_n}.csv", 'w+', newline='') as f:
         csv_writer = csv.writer(f)
         csv_writer.writerow(["timestamp"] + [f"y{x}" for x in range(rainbow_n)])
 
