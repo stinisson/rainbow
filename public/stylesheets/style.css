@@ -3,8 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow: auto; }
 
-a {
-  color: #2880a3; }
+.footer a {
+  color: #7b91e5;
+  text-decoration: none; }
+
+.footer a:hover {
+  color: #3f5eb4;
+  text-decoration: none; }
 
 #myChart {
   width: 400px;
