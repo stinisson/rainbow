@@ -9,7 +9,6 @@ const dbURL = "mongodb://localhost";
 
 let lastPrice = 0;
 function saveLastPrice() {
-
   const priceDocument = {"price": lastPrice, "timestamp": parseInt(Date.now()/1000)}   ;
 
   MongoClient.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
@@ -52,9 +51,7 @@ router.get('/',function(req, res, next) {
 
 module.exports = router;
 
-
-// Update opening hours once every five minutes
-// cronTime, onTick, onComplete, start, timezone, context, runOnInit
 // Save last price five seconds past midnight everyday
+// cronTime, onTick, onComplete, start, timezone, context, runOnInit
 const job = new CronJob('5 0 0 * * *', saveLastPrice, null, null, null, null, false);
 job.start();
