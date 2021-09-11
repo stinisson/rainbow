@@ -52,7 +52,7 @@ function downloadRainbow() {
         points.forEach((point) => {
           if (dayCount === 0) {
             for (let idx = 0; idx < 8; idx++) {
-              rainbowDatas[idx].push({x: point.timestamp['$timestamp'] * 1000, y: Number.parseFloat(point["y" + idx]).toPrecision(3)});
+              rainbowDatas[idx].push({x: point.timestamp * 1000, y: Number.parseFloat(point["y" + idx]).toPrecision(3)});
             }
           }
           dayCount = (dayCount + 1) % 7; // Only add every 7 days to limit number of data points
