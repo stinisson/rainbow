@@ -26,6 +26,7 @@ $(document).ready(() => {
       $("#dark-mode-icon").removeClass("fa-moon");
       $("#dark-mode-icon").addClass("fa-sun");
       $("#dark-mode-icon").css("color", "#2A2A2A");
+      $(".footer").css("color", "#D5D5D5");
 
       document.myChart.data.datasets[0].borderColor = CHART_COLORS_TRANSPARENT.grey;
       document.myChart.data.datasets[2].borderColor = CHART_COLORS_COMPLEMENTARY.purple;
@@ -46,6 +47,8 @@ $(document).ready(() => {
       $("#dark-mode-icon").css("color", "#fff");
       $("#dark-mode-icon").removeClass("fa-sun");
       $("#dark-mode-icon").addClass("fa-moon");
+      $(".footer").css("color", "#212121");
+
       document.myChart.data.datasets[0].borderColor = CHART_COLORS.white;
       document.myChart.data.datasets[2].borderColor = CHART_COLORS.purple;
       document.myChart.data.datasets[2].backgroundColor = CHART_COLORS_TRANSPARENT.purple;
