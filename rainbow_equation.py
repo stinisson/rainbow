@@ -93,7 +93,7 @@ def make_rainbow(rainbow_n=7):
 
     with open(f"rainbow_{rainbow_n}.csv", 'w+', newline='') as f:
         csv_writer = csv.writer(f)
-        csv_writer.writerow(["timestamp"] + [f"y{x}" for x in range(rainbow_n)])
+        csv_writer.writerow(["timestamp"] + [f"y{x}" for x in range(rainbow_n + 1)])
 
         for idx in range(rainbows.shape[1]):
             row = [int(timestamps_extended[idx].timestamp())]

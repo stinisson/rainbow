@@ -1,6 +1,10 @@
 *.env
 .idea
 
+package-lock.json
+stin_prices.csv
+*.css.map
+
 # Logs
 logs
 *.log
